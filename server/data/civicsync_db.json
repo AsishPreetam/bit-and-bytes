@@ -1,0 +1,1278 @@
+{
+  "contractors": [
+    {
+      "id": "cont-1",
+      "name": "Vertex Urban Utilities",
+      "registrationNumber": "MUN-CON-2021-049",
+      "specialty": "Trenchless Water & Sewerage",
+      "contactEmail": "contact@vertexurban.com",
+      "phone": "+91 98450 11234"
+    },
+    {
+      "id": "cont-2",
+      "name": "Apex Civil Infrastructure",
+      "registrationNumber": "MUN-CON-2019-112",
+      "specialty": "Arterial Road Expansion & Flyovers",
+      "contactEmail": "ops@apexcivil.org",
+      "phone": "+91 98450 88765"
+    },
+    {
+      "id": "cont-3",
+      "name": "Horizon Pipelines & Trenchless",
+      "registrationNumber": "MUN-CON-2020-078",
+      "specialty": "Stormwater Drainage & Culverts",
+      "contactEmail": "projects@horizonpipe.io",
+      "phone": "+91 98450 66321"
+    },
+    {
+      "id": "cont-4",
+      "name": "MetroGrid Power Systems",
+      "registrationNumber": "MUN-CON-2022-301",
+      "specialty": "Underground High-Tension Cables",
+      "contactEmail": "dispatch@metrogridpower.com",
+      "phone": "+91 98450 33499"
+    },
+    {
+      "id": "cont-5",
+      "name": "TerraPave Highway Dynamics",
+      "registrationNumber": "MUN-CON-2018-024",
+      "specialty": "Bitumen Asphalt & Rapid Paving",
+      "contactEmail": "info@terrapave.net",
+      "phone": "+91 98450 99012"
+    },
+    {
+      "id": "cont-6",
+      "name": "NewEra Smart City Builders",
+      "registrationNumber": "MUN-CON-2024-550",
+      "specialty": "Fiber Conduit & Smart Streetlights",
+      "contactEmail": "hello@newerasmartcity.com",
+      "phone": "+91 98450 77100"
+    }
+  ],
+  "roadSegments": [
+    {
+      "id": "SEG-MG-04",
+      "name": "MG Road Corridor - Sector 4 to 8",
+      "zone": "Central Urban",
+      "lat": 12.9752,
+      "lng": 77.608,
+      "lengthKm": 2.4
+    },
+    {
+      "id": "SEG-NORTH-12",
+      "name": "North Arterial Ring - Junction 12",
+      "zone": "North Corridor",
+      "lat": 12.998,
+      "lng": 77.585,
+      "lengthKm": 4.1
+    },
+    {
+      "id": "SEG-TECH-01",
+      "name": "Tech Boulevard - Silicon Park Expressway",
+      "zone": "East Tech Corridor",
+      "lat": 12.935,
+      "lng": 77.685,
+      "lengthKm": 3.8
+    },
+    {
+      "id": "SEG-OLDTOWN-03",
+      "name": "Old Town Heritage Market Road",
+      "zone": "Historic Center",
+      "lat": 12.964,
+      "lng": 77.575,
+      "lengthKm": 1.6
+    },
+    {
+      "id": "SEG-RIVER-09",
+      "name": "Riverfront Promenade - Western Embankment",
+      "zone": "West Waterfront",
+      "lat": 12.952,
+      "lng": 77.562,
+      "lengthKm": 2.9
+    },
+    {
+      "id": "SEG-GREEN-02",
+      "name": "Green Valley Outer Bypass",
+      "zone": "South Bypass",
+      "lat": 12.91,
+      "lng": 77.615,
+      "lengthKm": 5.2
+    }
+  ],
+  "projects": [
+    {
+      "id": "PRJ-101",
+      "name": "MG Road Subsurface Stormwater Culvert Upgrade",
+      "department": "Water Supply & Sewerage Board",
+      "contractorId": "cont-1",
+      "contractorName": "Vertex Urban Utilities",
+      "roadSegment": "MG Road Corridor - Sector 4 to 8",
+      "roadSegmentId": "SEG-MG-04",
+      "purpose": "Replace aged 600mm brick sewer lines with reinforced concrete culverts to prevent seasonal flooding during heavy monsoon spells.",
+      "status": "Active",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-25",
+      "lat": 12.9752,
+      "lng": 77.608,
+      "heavyEquipment": true,
+      "laneImpact": "Single lane diversion; night-time excavation active",
+      "latestUpdate": "Trenching completed for first 800m. Pipe laying commencing Monday.",
+      "documents": [
+        {
+          "id": "DOC-101-1",
+          "name": "Municipal Trenching Permit #4029",
+          "type": "Permit",
+          "status": "Verified",
+          "uploadDate": "2026-09-20",
+          "notes": "Approved by City Engineer"
+        },
+        {
+          "id": "DOC-101-2",
+          "name": "Traffic Police Diversion NOC",
+          "type": "Traffic NOC",
+          "status": "Verified",
+          "uploadDate": "2026-09-22",
+          "notes": "Night diversion protocol active"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-09-15T09:00:00Z",
+          "actor": "Vertex Urban Utilities",
+          "action": "Project submitted for municipal review."
+        },
+        {
+          "timestamp": "2026-09-23T14:30:00Z",
+          "actor": "Municipal Staff (Eng. Sharma)",
+          "action": "Project approved. Permitted start 2026-10-01."
+        },
+        {
+          "timestamp": "2026-10-01T08:00:00Z",
+          "actor": "Vertex Urban Utilities",
+          "action": "Work initiated on site. Trenching underway."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-102",
+      "name": "MG Road Underground Fiber Optics Duct Laying",
+      "department": "Urban Telecom & Smart Infrastructure",
+      "contractorId": "cont-2",
+      "contractorName": "Apex Civil Infrastructure",
+      "roadSegment": "MG Road Corridor - Sector 4 to 8",
+      "roadSegmentId": "SEG-MG-04",
+      "purpose": "Lay high-density micro-ducts for municipal surveillance and 5G civic communication nodes.",
+      "status": "Proposed",
+      "startDate": "2026-10-15",
+      "endDate": "2026-10-28",
+      "lat": 12.9765,
+      "lng": 77.6095,
+      "heavyEquipment": true,
+      "laneImpact": "Sidewalk and curb lane access required",
+      "latestUpdate": "Schedule conflict detected with Stormwater Culvert project on same road segment.",
+      "documents": [
+        {
+          "id": "DOC-102-1",
+          "name": "Telecom Deployment Agreement",
+          "type": "Contract",
+          "status": "Rejected",
+          "uploadDate": "2026-10-05",
+          "notes": "Reviewed as Rejected by Municipal Engineering Division"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-10-05T11:20:00Z",
+          "actor": "Apex Civil Infrastructure",
+          "action": "Proposed project submitted."
+        },
+        {
+          "timestamp": "2026-10-05T11:21:00Z",
+          "actor": "CivicSync Engine",
+          "action": "CONFLICT WARNING: Overlaps with PRJ-101 on MG Road Corridor (Oct 15 - Oct 25)."
+        },
+        {
+          "timestamp": "2026-10-10T11:09:26.667Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Verified\". Note: Reviewed as Verified by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:27.546Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Verified\". Note: Reviewed as Verified by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:28.092Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Verified\". Note: Reviewed as Verified by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:28.311Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Verified\". Note: Reviewed as Verified by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:29.104Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Rejected\". Note: Reviewed as Rejected by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:30.322Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Rejected\". Note: Reviewed as Rejected by Municipal Engineering Division"
+        },
+        {
+          "timestamp": "2026-10-10T11:09:31.272Z",
+          "actor": "Dr. Ananya Mehta",
+          "action": "Document \"Telecom Deployment Agreement\" marked as \"Rejected\". Note: Reviewed as Rejected by Municipal Engineering Division"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-103",
+      "name": "North Arterial Ring Road Asphalting & Resurfacing",
+      "department": "Municipal Road Extension & Paving",
+      "contractorId": "cont-5",
+      "contractorName": "TerraPave Highway Dynamics",
+      "roadSegment": "North Arterial Ring - Junction 12",
+      "roadSegmentId": "SEG-NORTH-12",
+      "purpose": "Milling existing weathered asphalt and applying 40mm stone matrix asphalt overlay.",
+      "status": "Awaiting Inspection",
+      "startDate": "2026-09-10",
+      "endDate": "2026-10-08",
+      "lat": 12.998,
+      "lng": 77.585,
+      "heavyEquipment": true,
+      "laneImpact": "Dual carriageway milling completed",
+      "latestUpdate": "Contractor has submitted completion ticket with core sample test results. Awaiting municipal engineer sign-off.",
+      "completionTicket": {
+        "submittedAt": "2026-10-08T16:00:00Z",
+        "contractorNotes": "All 4.1km resurfaced. Lane markings and thermo-plastic arrows painted. Site cleared of bitumen drums.",
+        "evidencePhoto": "https://images.unsplash.com/photo-1578991624414-276ef23a534f?auto=format&fit=crop&w=800&q=80",
+        "densityCertificate": "LAB-TEST-PASS-99.2%"
+      },
+      "documents": [
+        {
+          "id": "DOC-103-1",
+          "name": "Highway Maintenance Contract #2024-H12",
+          "type": "Contract",
+          "status": "Verified",
+          "uploadDate": "2026-09-01",
+          "notes": "Contract verified"
+        },
+        {
+          "id": "DOC-103-2",
+          "name": "Asphalt Quality Test Sheet",
+          "type": "Lab Report",
+          "status": "Verified",
+          "uploadDate": "2026-10-08",
+          "notes": "Bitumen pen test verified"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-09-02T10:00:00Z",
+          "actor": "Municipal Staff",
+          "action": "Approved for roadworks."
+        },
+        {
+          "timestamp": "2026-09-10T08:00:00Z",
+          "actor": "TerraPave Highway Dynamics",
+          "action": "Work started."
+        },
+        {
+          "timestamp": "2026-10-08T16:00:00Z",
+          "actor": "TerraPave Highway Dynamics",
+          "action": "Submitted completion ticket. Status changed to Awaiting Inspection."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-104",
+      "name": "Tech Boulevard High-Tension Cable Trenching",
+      "department": "City Power & Energy Corporation",
+      "contractorId": "cont-4",
+      "contractorName": "MetroGrid Power Systems",
+      "roadSegment": "Tech Boulevard - Silicon Park Expressway",
+      "roadSegmentId": "SEG-TECH-01",
+      "purpose": "Install 66kV underground feeder lines to supply renewable microgrid substation.",
+      "status": "Active",
+      "startDate": "2026-10-05",
+      "endDate": "2026-11-12",
+      "lat": 12.935,
+      "lng": 77.685,
+      "heavyEquipment": true,
+      "laneImpact": "Service road blocked; main expressway open",
+      "latestUpdate": "Directional drilling ongoing beneath junction 4. No surface cuts required on flyover.",
+      "documents": [
+        {
+          "id": "DOC-104-1",
+          "name": "Power Grid Safety Clearance",
+          "type": "Safety Clearance",
+          "status": "Verified",
+          "uploadDate": "2026-09-28",
+          "notes": "Electrical safety protocols compliant"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-09-29T12:00:00Z",
+          "actor": "Municipal Staff",
+          "action": "Approved."
+        },
+        {
+          "timestamp": "2026-10-05T09:00:00Z",
+          "actor": "MetroGrid Power Systems",
+          "action": "Commenced directional drilling."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-105",
+      "name": "Old Town Heritage Water Mains Replacement",
+      "department": "Water Supply & Sewerage Board",
+      "contractorId": "cont-3",
+      "contractorName": "Horizon Pipelines & Trenchless",
+      "roadSegment": "Old Town Heritage Market Road",
+      "roadSegmentId": "SEG-OLDTOWN-03",
+      "purpose": "Replace cast-iron water pipes laid in 1968 with high-density polyethylene (HDPE) lines.",
+      "status": "Approved/Planned",
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-20",
+      "lat": 12.964,
+      "lng": 77.575,
+      "heavyEquipment": false,
+      "laneImpact": "Narrow cobblestone street; pedestrian bypass designated",
+      "latestUpdate": "Approved by heritage board and municipal works. Commencing after Diwali festival.",
+      "documents": [
+        {
+          "id": "DOC-105-1",
+          "name": "Heritage Conservation Committee NOC",
+          "type": "Permit",
+          "status": "Verified",
+          "uploadDate": "2026-10-02",
+          "notes": "Preserves heritage facades"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-10-02T10:30:00Z",
+          "actor": "Municipal Staff",
+          "action": "Approved planned work."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-106",
+      "name": "Riverfront Promenade Storm Outfall Reconstruction",
+      "department": "Urban Drainage Authority",
+      "contractorId": "cont-1",
+      "contractorName": "Vertex Urban Utilities",
+      "roadSegment": "Riverfront Promenade - Western Embankment",
+      "roadSegmentId": "SEG-RIVER-09",
+      "purpose": "Rebuild tidal non-return flap valves and concrete headwall to prevent river backflow into city stormwater network.",
+      "status": "Completed",
+      "startDate": "2026-08-01",
+      "endDate": "2026-09-15",
+      "lat": 12.952,
+      "lng": 77.562,
+      "heavyEquipment": true,
+      "laneImpact": "River embankment pathway restored",
+      "latestUpdate": "Officially verified and approved by Municipal Chief Inspector on Sep 18, 2026.",
+      "documents": [
+        {
+          "id": "DOC-106-1",
+          "name": "Municipal Final Inspection Report #2026-INSP-88",
+          "type": "Inspection Report",
+          "status": "Verified",
+          "uploadDate": "2026-09-18",
+          "notes": "Grade A certified"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-08-01T08:00:00Z",
+          "actor": "Vertex Urban Utilities",
+          "action": "Work started."
+        },
+        {
+          "timestamp": "2026-09-15T17:00:00Z",
+          "actor": "Vertex Urban Utilities",
+          "action": "Submitted completion ticket."
+        },
+        {
+          "timestamp": "2026-09-18T11:00:00Z",
+          "actor": "Municipal Chief Inspector",
+          "action": "Final inspection approved. Project marked Completed."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-107",
+      "name": "Green Valley Outer Bypass LED Smart Streetlighting",
+      "department": "City Power & Energy Corporation",
+      "contractorId": "cont-6",
+      "contractorName": "NewEra Smart City Builders",
+      "roadSegment": "Green Valley Outer Bypass",
+      "roadSegmentId": "SEG-GREEN-02",
+      "purpose": "Erect 140 solar-hybrid LED lighting poles with automated lux sensors and emergency SOS callboxes.",
+      "status": "Active",
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-30",
+      "lat": 12.91,
+      "lng": 77.615,
+      "heavyEquipment": false,
+      "laneImpact": "Shoulder work only; zero traffic disruption",
+      "latestUpdate": "75 of 140 poles erected and energised. Fiber connectivity testing underway.",
+      "documents": [
+        {
+          "id": "DOC-107-1",
+          "name": "Green Energy Grid Approval",
+          "type": "Permit",
+          "status": "Verified",
+          "uploadDate": "2026-09-25",
+          "notes": "Solar feeder approved"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-09-25T14:00:00Z",
+          "actor": "Municipal Staff",
+          "action": "Approved."
+        },
+        {
+          "timestamp": "2026-10-02T08:30:00Z",
+          "actor": "NewEra Smart City Builders",
+          "action": "Began pole foundation installation."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-108",
+      "name": "Old Town Gas Pipeline Relocation",
+      "department": "City Power & Energy Corporation",
+      "contractorId": "cont-4",
+      "contractorName": "MetroGrid Power Systems",
+      "roadSegment": "Old Town Heritage Market Road",
+      "roadSegmentId": "SEG-OLDTOWN-03",
+      "purpose": "Reroute natural gas distribution network away from fragile historic brick cellars.",
+      "status": "Delayed",
+      "startDate": "2026-09-01",
+      "endDate": "2026-10-10",
+      "lat": 12.9645,
+      "lng": 77.5755,
+      "heavyEquipment": false,
+      "laneImpact": "Intermittent night roadblocks",
+      "latestUpdate": "Delayed by 14 days due to unmapped archaeological masonry discovery.",
+      "documents": [
+        {
+          "id": "DOC-108-1",
+          "name": "Gas Authority Permit #GA-440",
+          "type": "Permit",
+          "status": "Verified",
+          "uploadDate": "2026-08-25",
+          "notes": "Approved"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-09-01T08:00:00Z",
+          "actor": "MetroGrid Power Systems",
+          "action": "Work started."
+        },
+        {
+          "timestamp": "2026-10-01T15:00:00Z",
+          "actor": "Municipal Staff",
+          "action": "Status updated to Delayed due to archaeological survey."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-109",
+      "name": "North Arterial Drainage Interceptor Culvert",
+      "department": "Urban Drainage Authority",
+      "contractorId": "cont-3",
+      "contractorName": "Horizon Pipelines & Trenchless",
+      "roadSegment": "North Arterial Ring - Junction 12",
+      "roadSegmentId": "SEG-NORTH-12",
+      "purpose": "Install cross-culverts to prevent runoff accumulation near expressway toll plaza.",
+      "status": "Completed",
+      "startDate": "2026-07-15",
+      "endDate": "2026-08-30",
+      "lat": 12.9985,
+      "lng": 77.5855,
+      "heavyEquipment": true,
+      "laneImpact": "Completed with full reinstatement",
+      "latestUpdate": "Completed and accepted by Municipal Drainage Division.",
+      "documents": [
+        {
+          "id": "DOC-109-1",
+          "name": "Drainage Completion Certificate",
+          "type": "Certificate",
+          "status": "Verified",
+          "uploadDate": "2026-09-02",
+          "notes": "Verified by Municipal Works"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-07-15T09:00:00Z",
+          "actor": "Horizon Pipelines",
+          "action": "Started."
+        },
+        {
+          "timestamp": "2026-09-02T10:00:00Z",
+          "actor": "Municipal Works",
+          "action": "Approved completion."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-110",
+      "name": "Riverfront Walkway Embankment Reinforcement",
+      "department": "Municipal Road Extension & Paving",
+      "contractorId": "cont-2",
+      "contractorName": "Apex Civil Infrastructure",
+      "roadSegment": "Riverfront Promenade - Western Embankment",
+      "roadSegmentId": "SEG-RIVER-09",
+      "purpose": "Reinforce concrete retaining wall and install permeable paver walking tracks.",
+      "status": "Completed",
+      "startDate": "2026-06-01",
+      "endDate": "2026-07-28",
+      "lat": 12.9525,
+      "lng": 77.5625,
+      "heavyEquipment": true,
+      "laneImpact": "Complete",
+      "latestUpdate": "Project completed on schedule with zero safety incidents.",
+      "documents": [
+        {
+          "id": "DOC-110-1",
+          "name": "Structural Integrity Certificate",
+          "type": "Certificate",
+          "status": "Verified",
+          "uploadDate": "2026-08-01",
+          "notes": "Approved"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-06-01T08:00:00Z",
+          "actor": "Apex Civil",
+          "action": "Started."
+        },
+        {
+          "timestamp": "2026-08-01T14:00:00Z",
+          "actor": "Municipal Staff",
+          "action": "Approved completion."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-111",
+      "name": "Tech Boulevard Feeder Water Line Expansion",
+      "department": "Water Supply & Sewerage Board",
+      "contractorId": "cont-1",
+      "contractorName": "Vertex Urban Utilities",
+      "roadSegment": "Tech Boulevard - Silicon Park Expressway",
+      "roadSegmentId": "SEG-TECH-01",
+      "purpose": "Extend pressurized potable water pipeline to service newly developed commercial sector.",
+      "status": "Proposed",
+      "startDate": "2026-10-20",
+      "endDate": "2026-11-10",
+      "lat": 12.936,
+      "lng": 77.686,
+      "heavyEquipment": true,
+      "laneImpact": "Shared service road with High-Tension cable trenching",
+      "latestUpdate": "CONFLICT WARNING: Dates overlap with PRJ-104 High-Tension Cable Trenching on Tech Boulevard corridor.",
+      "documents": [
+        {
+          "id": "DOC-111-1",
+          "name": "Technical Hydraulic Feasibility Plan",
+          "type": "Technical Report",
+          "status": "Pending",
+          "uploadDate": "2026-10-06",
+          "notes": "Under review"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-10-06T09:30:00Z",
+          "actor": "Vertex Urban Utilities",
+          "action": "Proposed project submitted."
+        },
+        {
+          "timestamp": "2026-10-06T09:31:00Z",
+          "actor": "CivicSync Engine",
+          "action": "CONFLICT WARNING: Overlaps with PRJ-104 on Tech Boulevard (Oct 20 - Nov 10)."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-112",
+      "name": "Green Valley Bypass Storm Sewer Box Culverts",
+      "department": "Urban Drainage Authority",
+      "contractorId": "cont-5",
+      "contractorName": "TerraPave Highway Dynamics",
+      "roadSegment": "Green Valley Outer Bypass",
+      "roadSegmentId": "SEG-GREEN-02",
+      "purpose": "Install precast box culverts across agricultural drainage channels.",
+      "status": "Inspection Failed",
+      "startDate": "2026-08-10",
+      "endDate": "2026-09-20",
+      "lat": 12.911,
+      "lng": 77.616,
+      "heavyEquipment": true,
+      "laneImpact": "Diversion removed; remedial concrete curing required",
+      "latestUpdate": "Inspection Failed: Concrete compressive strength test showed 18 MPa vs specified 30 MPa. Remediation required.",
+      "documents": [
+        {
+          "id": "DOC-112-1",
+          "name": "Concrete Core Test Failure Notice #F-88",
+          "type": "Inspection Report",
+          "status": "Rejected",
+          "uploadDate": "2026-09-25",
+          "notes": "Compressive failure"
+        }
+      ],
+      "history": [
+        {
+          "timestamp": "2026-08-10T08:00:00Z",
+          "actor": "TerraPave",
+          "action": "Started."
+        },
+        {
+          "timestamp": "2026-09-20T16:00:00Z",
+          "actor": "TerraPave",
+          "action": "Requested completion inspection."
+        },
+        {
+          "timestamp": "2026-09-25T11:00:00Z",
+          "actor": "Municipal Quality Inspector",
+          "action": "INSPECTION REJECTED: Concrete strength sub-standard. Status marked Inspection Failed."
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-201",
+      "name": "Anna Salai Metro Phase 2 Stormwater Duct Laying",
+      "roadSegment": "Anna Salai / Mount Road Corridor",
+      "locality": "Teynampet / T. Nagar, Chennai",
+      "department": "Chennai Metropolitan Water Supply and Sewerage Board",
+      "contractorId": "cont-2",
+      "contractorName": "Apex Civil Infrastructure",
+      "startDate": "2026-03-01",
+      "endDate": "2026-06-30",
+      "status": "Active",
+      "depthMeters": 2.8,
+      "lat": 13.061,
+      "lng": 80.252,
+      "budget": 45000000,
+      "trafficImpact": "Moderate lane diversion near Mount Road",
+      "heavyEquipment": true,
+      "purpose": "Deep subsurface stormwater culvert integration with Metro Line 3",
+      "documents": [
+        {
+          "id": "DOC-CHN-1",
+          "name": "Metro Corridor Dig-Once NoC",
+          "type": "Permit",
+          "uploadDate": "2026-02-15",
+          "status": "Verified"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-202",
+      "name": "OMR IT Expressway Underground Fiber Optics Trenching",
+      "roadSegment": "Rajiv Gandhi Salai (OMR) - Sector 1",
+      "locality": "Thiruvanmiyur / Perungudi, Chennai",
+      "department": "Tamil Nadu Telecommunications Infrastructure Corp",
+      "contractorId": "cont-1",
+      "contractorName": "BuildCorp Urban Solutions",
+      "startDate": "2026-04-10",
+      "endDate": "2026-07-20",
+      "status": "Approved/Planned",
+      "depthMeters": 1.5,
+      "lat": 12.965,
+      "lng": 80.245,
+      "budget": 28000000,
+      "trafficImpact": "Night-time service lane works only",
+      "heavyEquipment": false,
+      "purpose": "High-density fiber optic duct placement beneath pedestrian sidewalks",
+      "documents": [
+        {
+          "id": "DOC-CHN-2",
+          "name": "Highways Dept Trenching Approval",
+          "type": "Clearance",
+          "uploadDate": "2026-03-10",
+          "status": "Verified"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-203",
+      "name": "T. Nagar Smart City Pedestrian Mall Resurfacing",
+      "roadSegment": "Pondy Bazaar / Usman Road",
+      "locality": "T. Nagar, Chennai",
+      "department": "Greater Chennai Corporation (GCC)",
+      "contractorId": "cont-3",
+      "contractorName": "CivicStone Engineers Ltd",
+      "startDate": "2026-02-15",
+      "endDate": "2026-05-15",
+      "status": "Active",
+      "depthMeters": 0.8,
+      "lat": 13.0415,
+      "lng": 80.233,
+      "budget": 18500000,
+      "trafficImpact": "Pedestrian plaza localized paving",
+      "heavyEquipment": true,
+      "purpose": "Permeable interlocking paver installation and utility duct leveling",
+      "documents": [
+        {
+          "id": "DOC-CHN-3",
+          "name": "Smart City Mission Quality Audit",
+          "type": "Inspection",
+          "uploadDate": "2026-02-01",
+          "status": "Verified"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-204",
+      "name": "Adyar River Embankment Flood Culvert Upgrade",
+      "roadSegment": "Adyar Bridge Road - South Embankment",
+      "locality": "Adyar / Gandhi Nagar, Chennai",
+      "department": "Public Works Department (Water Resources)",
+      "contractorId": "cont-4",
+      "contractorName": "Zenith City Roads Ltd",
+      "startDate": "2026-01-10",
+      "endDate": "2026-04-05",
+      "status": "Completed",
+      "depthMeters": 3.2,
+      "lat": 13.006,
+      "lng": 80.257,
+      "budget": 34000000,
+      "trafficImpact": "Low - Completed embankment works",
+      "heavyEquipment": false,
+      "purpose": "Reinforced concrete stormwater outfall channel reconstruction",
+      "documents": [
+        {
+          "id": "DOC-CHN-4",
+          "name": "PWD Hydraulic Completion Certificate",
+          "type": "Completion",
+          "uploadDate": "2026-04-06",
+          "status": "Verified"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-205",
+      "name": "Poonamallee High Road Water Mains Relocation",
+      "roadSegment": "Poonamallee High Road - Kilpauk Junction",
+      "locality": "Kilpauk / Chetpet, Chennai",
+      "department": "Chennai Metropolitan Water Supply and Sewerage Board",
+      "contractorId": "cont-5",
+      "contractorName": "Corridor Prime Infrastructure",
+      "startDate": "2026-02-01",
+      "endDate": "2026-05-30",
+      "status": "Delayed",
+      "depthMeters": 2.2,
+      "lat": 13.078,
+      "lng": 80.24,
+      "budget": 22000000,
+      "trafficImpact": "Substantial peak-hour corridor bottlenecks",
+      "heavyEquipment": true,
+      "purpose": "Emergency cast-iron water distribution main replacement",
+      "documents": [
+        {
+          "id": "DOC-CHN-5",
+          "name": "Delay Justification and Traffic Order",
+          "type": "Notice",
+          "uploadDate": "2026-03-25",
+          "status": "Under Review"
+        }
+      ]
+    },
+    {
+      "id": "PRJ-CHN-206",
+      "name": "Velachery Bypass Outer Sewer Interceptor Box",
+      "roadSegment": "Velachery Main Road / 100ft Road",
+      "locality": "Velachery, Chennai",
+      "department": "Greater Chennai Corporation (GCC)",
+      "contractorId": "cont-2",
+      "contractorName": "Apex Civil Infrastructure",
+      "startDate": "2026-03-15",
+      "endDate": "2026-06-15",
+      "status": "Awaiting Inspection",
+      "depthMeters": 2.5,
+      "lat": 12.981,
+      "lng": 80.218,
+      "budget": 31000000,
+      "trafficImpact": "Completed backfill, awaiting physical compaction signoff",
+      "heavyEquipment": false,
+      "purpose": "Underground precast concrete box culvert for flood mitigation",
+      "documents": [
+        {
+          "id": "DOC-CHN-6",
+          "name": "Contractor Work Completion Form",
+          "type": "Inspection Request",
+          "uploadDate": "2026-04-01",
+          "status": "Pending"
+        }
+      ]
+    }
+  ],
+  "historicalProjects": [
+    {
+      "id": "HIST-01",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "Ring Road Phase 1"
+    },
+    {
+      "id": "HIST-02",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "Airport Expressway Flyover"
+    },
+    {
+      "id": "HIST-03",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "South Elevated Corridor"
+    },
+    {
+      "id": "HIST-04",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "Central Underpass Drainage"
+    },
+    {
+      "id": "HIST-05",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "East Ring Road Bridge"
+    },
+    {
+      "id": "HIST-06",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "North Metro Feeder Road"
+    },
+    {
+      "id": "HIST-07",
+      "contractorId": "cont-2",
+      "status": "Completed",
+      "name": "West Bypass Expansion"
+    },
+    {
+      "id": "HIST-08",
+      "contractorId": "cont-2",
+      "status": "Unsuccessful",
+      "name": "Lakebed Causeway Road (Terminated)"
+    },
+    {
+      "id": "HIST-09",
+      "contractorId": "cont-2",
+      "status": "Unsuccessful",
+      "name": "Industrial Spur Paving (Contract default)"
+    },
+    {
+      "id": "HIST-10",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Zone 4 Water Mains"
+    },
+    {
+      "id": "HIST-11",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Zone 7 Pumping Station Culvert"
+    },
+    {
+      "id": "HIST-12",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Tech Corridor Stormline"
+    },
+    {
+      "id": "HIST-13",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Outer Ring Water Feeder"
+    },
+    {
+      "id": "HIST-14",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Old Town Sewer Relining"
+    },
+    {
+      "id": "HIST-15",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "North Reservoir Feed Line"
+    },
+    {
+      "id": "HIST-16",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "East Suburbs HDPE Mains"
+    },
+    {
+      "id": "HIST-17",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "South District Water Grid"
+    },
+    {
+      "id": "HIST-18",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Riverfront Flood Channel"
+    },
+    {
+      "id": "HIST-19",
+      "contractorId": "cont-1",
+      "status": "Completed",
+      "name": "Market Square Pressure Reducer"
+    },
+    {
+      "id": "HIST-20",
+      "contractorId": "cont-1",
+      "status": "Unsuccessful",
+      "name": "Hillview Reservoir Pipeline (Geotechnical failure)"
+    },
+    {
+      "id": "HIST-21",
+      "contractorId": "cont-3",
+      "status": "Completed",
+      "name": "Drainage Trunk Line A"
+    },
+    {
+      "id": "HIST-22",
+      "contractorId": "cont-3",
+      "status": "Completed",
+      "name": "Canal Diversion Box Culvert"
+    },
+    {
+      "id": "HIST-23",
+      "contractorId": "cont-3",
+      "status": "Completed",
+      "name": "Airport Stormwater Drain"
+    },
+    {
+      "id": "HIST-24",
+      "contractorId": "cont-3",
+      "status": "Completed",
+      "name": "West Gate Storm Channel"
+    },
+    {
+      "id": "HIST-25",
+      "contractorId": "cont-3",
+      "status": "Completed",
+      "name": "Heritage Basin Outfall"
+    },
+    {
+      "id": "HIST-26",
+      "contractorId": "cont-3",
+      "status": "Unsuccessful",
+      "name": "Sector 9 Culvert (Subcontractor breach)"
+    },
+    {
+      "id": "HIST-27",
+      "contractorId": "cont-4",
+      "status": "Completed",
+      "name": "Substation 12 Cable Duct"
+    },
+    {
+      "id": "HIST-28",
+      "contractorId": "cont-4",
+      "status": "Completed",
+      "name": "Metro Feeder 33kV Line"
+    },
+    {
+      "id": "HIST-29",
+      "contractorId": "cont-4",
+      "status": "Completed",
+      "name": "Industrial Zone Grid Line"
+    },
+    {
+      "id": "HIST-30",
+      "contractorId": "cont-4",
+      "status": "Completed",
+      "name": "River Bridge Cable Suspension"
+    },
+    {
+      "id": "HIST-31",
+      "contractorId": "cont-4",
+      "status": "Unsuccessful",
+      "name": "Old Cantonment Power Line (Canceled by department)"
+    },
+    {
+      "id": "HIST-32",
+      "contractorId": "cont-5",
+      "status": "Completed",
+      "name": "Sector 5 Arterial Paving"
+    },
+    {
+      "id": "HIST-33",
+      "contractorId": "cont-5",
+      "status": "Completed",
+      "name": "South Expressway Resurfacing"
+    },
+    {
+      "id": "HIST-34",
+      "contractorId": "cont-5",
+      "status": "Completed",
+      "name": "Transit Terminal Asphalt"
+    },
+    {
+      "id": "HIST-35",
+      "contractorId": "cont-5",
+      "status": "Unsuccessful",
+      "name": "Ring Road Service Lane (Quality rejection)"
+    },
+    {
+      "id": "HIST-36",
+      "contractorId": "cont-6",
+      "status": "Completed",
+      "name": "Smart Pole Pilot Phase 1"
+    },
+    {
+      "id": "HIST-37",
+      "contractorId": "cont-6",
+      "status": "Completed",
+      "name": "Civic Center Wi-Fi Towers"
+    }
+  ],
+  "complaints": [
+    {
+      "id": "REP-201",
+      "projectId": "PRJ-101",
+      "projectName": "MG Road Subsurface Stormwater Culvert Upgrade",
+      "contractorId": "cont-1",
+      "category": "poor workmanship",
+      "description": "Loose gravel spilled onto pedestrian sidewalk near Metro Pillar 188. Slippery for morning commuters.",
+      "photo": "https://images.unsplash.com/photo-1541888946425-d0fbb18615f3?auto=format&fit=crop&w=800&q=80",
+      "submittedBy": "Citizen Aris M.",
+      "locality": "MG Road Corridor",
+      "status": "Verified",
+      "submissionDate": "2026-10-04T08:15:00Z",
+      "municipalResponse": "Site inspected by Ward Officer. Contractor Vertex instructed to deploy sweeper truck and install debris netting.",
+      "resolvedAt": null
+    },
+    {
+      "id": "REP-202",
+      "projectId": "PRJ-103",
+      "projectName": "North Arterial Ring Road Asphalting & Resurfacing",
+      "contractorId": "cont-5",
+      "category": "delay",
+      "description": "Bitumen smell lingered and tar drums blocked business entrance for 3 days past scheduled notice.",
+      "photo": null,
+      "submittedBy": "Citizen Rekha K.",
+      "locality": "North Arterial Ring",
+      "status": "Verified",
+      "submissionDate": "2026-09-28T14:20:00Z",
+      "municipalResponse": "Contractor TerraPave fined for improper staging of bitumen equipment. Entry cleared.",
+      "resolvedAt": "2026-10-02T10:00:00Z"
+    },
+    {
+      "id": "REP-203",
+      "projectId": "PRJ-104",
+      "projectName": "Tech Boulevard High-Tension Cable Trenching",
+      "contractorId": "cont-4",
+      "category": "incomplete work",
+      "description": "Barricade warning lights were not flashing at night around the directional drilling pit near Gate 2.",
+      "photo": null,
+      "submittedBy": "Citizen Priya V.",
+      "locality": "Tech Boulevard",
+      "status": "Under Review",
+      "submissionDate": "2026-10-08T20:10:00Z",
+      "municipalResponse": "Forwarded to electrical safety engineer for evening inspection.",
+      "resolvedAt": null
+    },
+    {
+      "id": "REP-204",
+      "projectId": "PRJ-110",
+      "projectName": "Riverfront Walkway Embankment Reinforcement",
+      "contractorId": "cont-2",
+      "category": "other",
+      "description": "Allegation that machinery made noise past 10 PM during July concrete pour.",
+      "photo": null,
+      "submittedBy": "Citizen Dev N.",
+      "locality": "Riverfront Promenade",
+      "status": "Rejected",
+      "submissionDate": "2026-07-10T22:30:00Z",
+      "municipalResponse": "Permitted emergency concrete slab pour was authorized under continuous-cure license #N-2026.",
+      "resolvedAt": "2026-07-12T09:00:00Z"
+    },
+    {
+      "id": "REP-205",
+      "projectId": "HIST-08",
+      "projectName": "Lakebed Causeway Road (Terminated)",
+      "contractorId": "cont-2",
+      "category": "incomplete work",
+      "description": "Abrupt stoppage of causeway retaining wall left unstable silt mounds near shoreline.",
+      "photo": null,
+      "submittedBy": "Citizen Karan T.",
+      "locality": "East Lakebed",
+      "status": "Verified",
+      "submissionDate": "2025-11-14T11:00:00Z",
+      "municipalResponse": "Environmental safety audit conducted. Remediation contract issued.",
+      "resolvedAt": "2026-01-10T12:00:00Z"
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "SUG-301",
+      "title": "Synchronize Water Pipeline & Paving on Sector 4 Corridor",
+      "road": "MG Road Corridor - Sector 4 to 8",
+      "locality": "Sector 4 Junction",
+      "description": "Please ensure the water department completes trenching before TerraPave or municipal road teams lay fresh asphalt. In past years, new asphalt was torn up within weeks!",
+      "submittedBy": "Citizen Vivek S.",
+      "date": "2026-10-03T11:00:00Z",
+      "upvotes": 42,
+      "status": "Converted to Proposal",
+      "proposalNotes": "Integrated into Municipal Dig-Once Policy Coordination Plan for Q4 2026."
+    },
+    {
+      "id": "SUG-302",
+      "title": "Install Raised Table Pedestrian Crossings Near Silicon School",
+      "road": "Tech Boulevard - Silicon Park Expressway",
+      "locality": "Silicon Park East",
+      "description": "Vehicles speed heavily after the elevated stretch. Need table-top raised pedestrian crossing and reflective thermal markings for school children.",
+      "submittedBy": "Citizen Ananya R.",
+      "date": "2026-10-06T15:30:00Z",
+      "upvotes": 28,
+      "status": "Pending Feasibility",
+      "proposalNotes": null
+    },
+    {
+      "id": "SUG-303",
+      "title": "Add Permeable Pavers on Riverfront Promenade Access Ramps",
+      "road": "Riverfront Promenade - Western Embankment",
+      "locality": "Riverfront Gate 1",
+      "description": "Heavy rain pools on the asphalt ramp leading down to the promenade. Permeable interlocking pavers would allow natural drainage into retention bioswales.",
+      "submittedBy": "Citizen Samarth B.",
+      "date": "2026-10-07T09:45:00Z",
+      "upvotes": 19,
+      "status": "Pending Feasibility",
+      "proposalNotes": null
+    }
+  ],
+  "scheduleProposals": [
+    {
+      "id": "PROP-401",
+      "projectId": "PRJ-102",
+      "projectName": "MG Road Underground Fiber Optics Duct Laying",
+      "contractorId": "cont-2",
+      "roadSegment": "MG Road Corridor - Sector 4 to 8",
+      "originalDates": "2026-10-15 to 2026-10-28",
+      "proposedDates": "2026-10-28 to 2026-11-10",
+      "reason": "Allows PRJ-101 (Stormwater Culvert) to conclude trenching and road stabilization, eliminating double digging.",
+      "status": "Pending Contractor Response",
+      "contractorResponse": null,
+      "contractorReason": null,
+      "createdAt": "2026-10-07T14:00:00Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "LOG-1791630571272-878a",
+      "timestamp": "2026-10-10T11:09:31.272Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Rejected\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630570322-9svb",
+      "timestamp": "2026-10-10T11:09:30.322Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Rejected\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630569104-r8ry",
+      "timestamp": "2026-10-10T11:09:29.104Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Rejected\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630568311-bc8k",
+      "timestamp": "2026-10-10T11:09:28.311Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Verified\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630568092-2l7z",
+      "timestamp": "2026-10-10T11:09:28.092Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Verified\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630567546-m8m3",
+      "timestamp": "2026-10-10T11:09:27.546Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Verified\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1791630566667-b6uf",
+      "timestamp": "2026-10-10T11:09:26.667Z",
+      "actor": "Dr. Ananya Mehta",
+      "action": "Updated document \"Telecom Deployment Agreement\" status to \"Verified\" on project \"MG Road Underground Fiber Optics Duct Laying\"."
+    },
+    {
+      "id": "LOG-1",
+      "timestamp": "2026-10-01T08:00:00Z",
+      "actor": "Vertex Urban Utilities",
+      "action": "Initiated site excavation on PRJ-101."
+    },
+    {
+      "id": "LOG-2",
+      "timestamp": "2026-10-05T11:21:00Z",
+      "actor": "CivicSync Conflict Engine",
+      "action": "Automatic conflict detected between PRJ-101 and PRJ-102."
+    },
+    {
+      "id": "LOG-3",
+      "timestamp": "2026-10-07T14:00:00Z",
+      "actor": "Municipal Staff (Chief Coord. Verma)",
+      "action": "Proposed alternative non-overlapping schedule for PRJ-102 (Oct 28 - Nov 10)."
+    },
+    {
+      "id": "LOG-4",
+      "timestamp": "2026-10-08T16:00:00Z",
+      "actor": "TerraPave Highway Dynamics",
+      "action": "Submitted completion ticket for PRJ-103. Project status updated to Awaiting Inspection."
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-citizen-1",
+      "name": "Priya Sharma",
+      "email": "citizen@civicsync.org",
+      "password": "demo",
+      "role": "citizen",
+      "locality": "MG Road Corridor",
+      "badge": "Verified Resident"
+    },
+    {
+      "id": "usr-contractor-1",
+      "name": "Rajesh Verma",
+      "email": "contractor@apexcivil.org",
+      "password": "demo",
+      "role": "contractor",
+      "contractorId": "cont-2",
+      "contractorName": "Apex Civil Infrastructure",
+      "badge": "Class-A Licensed Contractor"
+    },
+    {
+      "id": "usr-municipal-1",
+      "name": "Dr. Ananya Mehta",
+      "email": "officer@citygov.org",
+      "password": "demo",
+      "role": "municipal",
+      "designation": "Chief Works Engineer",
+      "department": "Urban Infrastructure Authority",
+      "badge": "Municipal Authority"
+    }
+  ]
+}
