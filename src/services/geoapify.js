@@ -1,9 +1,8 @@
 /**
  * Geoapify Maps & Geocoding Service for CivicSync
- * API Key: 8ce8b0ab319143129f3355ef90415ec6
  */
 
-export const GEOAPIFY_API_KEY = '8ce8b0ab319143129f3355ef90415ec6';
+export const GEOAPIFY_API_KEY = import.meta.env.VITE_GEOAPIFY_API_KEY || '';
 
 export const GEOAPIFY_TILE_STYLES = {
   bright: {

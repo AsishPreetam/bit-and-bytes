@@ -82,7 +82,7 @@ The client routes are `/`, `/login`, `/signup`, `/citizen`, `/contractor`, and `
 
 - Seed records are stored in `server/data/initial_seed.json`.
 - Runtime records are persisted in `server/data/civicsync_db.json`.
-- The Geoapify key is currently declared in `src/services/geoapify.js` and is included in the browser bundle. Replace it with a restricted key before publishing; do not put an unrestricted secret in client-side code.
+- Set `VITE_GEOAPIFY_API_KEY` in `.env` for local development (copy `.env.example`). In Render, add the same variable under **Environment** and redeploy. Vite embeds `VITE_` variables in the browser bundle, so this key is visible to visitors; restrict it in Geoapify to the deployed site and the required APIs. Do not use an unrestricted secret here.
 - Browser geolocation works on `localhost` and secure HTTPS origins. The permission prompt can be denied or blocked in browser settings without preventing project browsing.
 
 ## API overview
