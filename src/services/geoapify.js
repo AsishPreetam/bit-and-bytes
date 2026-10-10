@@ -52,7 +52,7 @@ export async function reverseGeocodeGeoapify(lat, lon) {
     return {
       formatted: `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
       locality: 'Local Vicinity',
-      city: 'City Core',
+      city: 'Unknown Area',
       full: null,
     };
   } catch (err) {
@@ -60,7 +60,7 @@ export async function reverseGeocodeGeoapify(lat, lon) {
     return {
       formatted: `${lat.toFixed(4)}, ${lon.toFixed(4)}`,
       locality: 'Current Coordinates',
-      city: 'Bengaluru',
+      city: 'Your Location',
       full: null,
     };
   }
@@ -77,10 +77,10 @@ export async function searchAddressGeoapify(text, proximity = null) {
   try {
     let url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(text.trim())}&filter=countrycode:in&apiKey=${GEOAPIFY_API_KEY}`;
     if (proximity && proximity.lat && proximity.lng) {
+      // Use user's actual location as bias for relevant results
       url += `&bias=proximity:${proximity.lng},${proximity.lat}`;
-    } else {
-      url += `&bias=proximity:77.608,12.975`; // Bias towards Bengaluru region
     }
+    // No hardcoded location bias — let Geoapify return results based on query relevance
 
     const res = await fetch(url);
     if (!res.ok) return [];

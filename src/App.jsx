@@ -8,13 +8,11 @@ import {
   fetchReports, 
   fetchSuggestions, 
   fetchAuditLogs,
-  upvoteSuggestion,
-  resetDatabase 
+  upvoteSuggestion
 } from './api';
 
 import { AuthProvider, useAuth } from './context/AuthContext';
 import AuthModal from './components/AuthModal';
-import DemoBanner from './components/DemoBanner';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import ProjectStatistics from './components/ProjectStatistics';
@@ -41,14 +39,14 @@ function AppContent() {
     }
     return 'landing';
   });
+  const [loginRole, setLoginRole] = useState('citizen');
   const [loading, setLoading] = useState(true);
-  const [resetting, setResetting] = useState(false);
 
   useEffect(() => {
     const handlePop = () => {
       const raw = (window.location.pathname.replace(/^\//, '') || window.location.hash.replace(/^#\/?/, '')).toLowerCase();
-      if (['auth', 'citizen', 'contractor', 'municipal'].includes(raw)) {
-        setActivePortal(raw);
+      if (['login', 'signup', 'auth', 'citizen', 'contractor', 'municipal'].includes(raw)) {
+        setActivePortal(raw === 'auth' ? 'login' : raw);
       } else {
         setActivePortal('landing');
       }
@@ -114,19 +112,6 @@ function AppContent() {
     loadAllData();
   }, []);
 
-  const handleResetDemo = async () => {
-    if (!window.confirm('Reset sample records back to default demonstration state?')) return;
-    setResetting(true);
-    try {
-      await resetDatabase();
-      await loadAllData();
-    } catch (err) {
-      alert('Error resetting demo: ' + err.message);
-    } finally {
-      setResetting(false);
-    }
-  };
-
   const handleUpvoteSuggestion = async (id) => {
     try {
       const updated = await upvoteSuggestion(id);
@@ -134,6 +119,18 @@ function AppContent() {
     } catch (err) {
       console.error('Failed to upvote:', err);
     }
+  };
+
+  const handlePortalEntry = (portal) => {
+    if (portal === 'citizen' || user?.role === portal) {
+      setActivePortal(portal);
+    } else if (user) {
+      requireRole(portal, () => setActivePortal(portal));
+    } else {
+      setLoginRole(portal);
+      setActivePortal('login');
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleScrollToSection = (selector) => {
@@ -152,6 +149,7 @@ function AppContent() {
   if (activePortal === 'login' || activePortal === 'auth') {
     return (
       <LoginPage
+        initialRole={loginRole}
         onNavigateHome={() => {
           setActivePortal('landing');
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -194,9 +192,6 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-emerald-100 selection:text-emerald-900">
       
-      {/* Prototype Notice */}
-      <DemoBanner onResetDemo={handleResetDemo} resetting={resetting} />
-
       {/* 1. Navbar and Portal Entry (Section 7.1) */}
       <Navbar
         activePortal={activePortal}
@@ -210,16 +205,7 @@ function AppContent() {
             {/* 2. Hero Section (Section 7.2) */}
             <HeroSection
               onExploreProjects={() => handleScrollToSection('#explore-projects')}
-              onOpenContractorPortal={() => {
-                requireRole('contractor', () => {
-                  setActivePortal('contractor');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                if (user?.role === 'contractor') {
-                  setActivePortal('contractor');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
+              onOpenContractorPortal={() => handlePortalEntry('contractor')}
             />
 
             {/* 3. Public Project Statistics (Section 7.3) */}
@@ -239,30 +225,7 @@ function AppContent() {
             />
 
             {/* 7. How CivicSync Works (Section 7.7) */}
-            <HowItWorks onSwitchPortal={(portal) => {
-              if (portal === 'contractor') {
-                requireRole('contractor', () => {
-                  setActivePortal('contractor');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                if (user?.role === 'contractor') {
-                  setActivePortal('contractor');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              } else if (portal === 'municipal') {
-                requireRole('municipal', () => {
-                  setActivePortal('municipal');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                if (user?.role === 'municipal') {
-                  setActivePortal('municipal');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              } else {
-                setActivePortal(portal);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }} />
+            <HowItWorks onSwitchPortal={handlePortalEntry} />
 
             {/* 8. Citizen Reporting and Feedback (Section 7.8) */}
             <div id="citizen-reports">
@@ -327,30 +290,7 @@ function AppContent() {
 
       {/* 10. Final Call to Action and Footer (Section 7.10) */}
       <FooterSection
-        onNavigatePortal={(portal) => {
-          if (portal === 'contractor') {
-            requireRole('contractor', () => {
-              setActivePortal('contractor');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            if (user?.role === 'contractor') {
-              setActivePortal('contractor');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-          } else if (portal === 'municipal') {
-            requireRole('municipal', () => {
-              setActivePortal('municipal');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            if (user?.role === 'municipal') {
-              setActivePortal('municipal');
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-          } else {
-            setActivePortal(portal);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }
-        }}
+        onNavigatePortal={handlePortalEntry}
         onScrollToSection={handleScrollToSection}
       />
 

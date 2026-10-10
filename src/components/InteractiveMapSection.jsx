@@ -46,6 +46,7 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
   const markersRef = useRef([]);
   const userMarkerRef = useRef(null);
   const radiusCircleRef = useRef(null);
+  const initialLocationRequestedRef = useRef(false);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -96,12 +97,22 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
         }
       },
       (err) => {
-        console.warn('Geolocation denied or error:', err);
+        console.warn('Geolocation denied or error:', err.code, err.message);
         setLocationPermissionStatus('denied');
       },
-      { timeout: 8000, enableHighAccuracy: true }
+      {
+        timeout: 15000,
+        enableHighAccuracy: true,
+        maximumAge: 0  // Always get a fresh position, never use cached location
+      }
     );
   };
+
+  useEffect(() => {
+    if (initialLocationRequestedRef.current) return;
+    initialLocationRequestedRef.current = true;
+    handleRequestLocation();
+  }, []);
 
   // Set preset locality as current center & reverse geocode
   const handleSelectPresetLocality = async (preset) => {
@@ -126,7 +137,8 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
     setLocationAddress(null);
     setLocationPermissionStatus('idle');
     if (leafletMapRef.current) {
-      leafletMapRef.current.flyTo([12.965, 77.61], 12);
+      // Reset to a sensible default zoom without hardcoding a city
+      leafletMapRef.current.setZoom(11);
     }
   };
 
@@ -218,11 +230,12 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
     if (!mapContainerRef.current) return;
     if (leafletMapRef.current) return;
 
-    const defaultCenter = [12.965, 77.61];
+    const defaultCenter = [12.9716, 77.5946];
+    const defaultZoom = 11;
 
     const map = L.map(mapContainerRef.current, {
       center: defaultCenter,
-      zoom: 12,
+      zoom: defaultZoom,
       zoomControl: true,
       scrollWheelZoom: false,
     });
@@ -242,6 +255,19 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
       leafletMapRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    const map = leafletMapRef.current;
+    if (!map || userLocation) return;
+
+    const projectCoordinates = (projects || [])
+      .filter((project) => Number.isFinite(Number(project.lat)) && Number.isFinite(Number(project.lng)))
+      .map((project) => [Number(project.lat), Number(project.lng)]);
+
+    if (projectCoordinates.length > 0) {
+      map.fitBounds(projectCoordinates, { padding: [36, 36], maxZoom: 13 });
+    }
+  }, [projects, userLocation]);
 
   // Update tile layer style when mapStyleKey changes
   useEffect(() => {
@@ -421,15 +447,15 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-semibold border border-emerald-200 mb-2">
               <Compass className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Geoapify Maps & Vicinity Detection</span>
+              <span>Public works map</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Interactive Map & Nearby Projects
+              Projects near you
             </h2>
             
             <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
-              Explore public works scheduled across your city. Allow location access to view active excavation permits in your immediate vicinity.
+              Find projects by location, street, or name. Location access is optional.
             </p>
           </div>
 
@@ -468,7 +494,7 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                     {userLocation 
                       ? `Your Vicinity: ${locationAddress?.locality || 'Current Area'}`
-                      : 'Discover Roadworks Near Your Location'
+                      : 'Find nearby projects'
                     }
                   </h3>
                   {userLocation && (
@@ -480,7 +506,7 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
                 <p className="text-xs text-slate-500 mt-0.5 max-w-2xl">
                   {userLocation 
                     ? `Displaying ${filteredProjects.length} infrastructure projects within ${radiusKm === 'all' ? 'All' : `${radiusKm} km`} of ${locationAddress?.formatted || 'your location'}.`
-                    : 'Grant location permission to automatically measure distance to active trenching and resurfacing sites in your neighborhood.'
+                    : 'We use your location to sort nearby works. You can deny access and still browse.'
                   }
                 </p>
               </div>
@@ -513,16 +539,22 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
                   className="flex items-center gap-2 px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
                 >
                   <Navigation className="w-3.5 h-3.5" />
-                  <span>{locationPermissionStatus === 'requesting' ? 'Requesting GPS...' : 'Allow Location & Find Nearby'}</span>
+                  <span>
+                    {locationPermissionStatus === 'requesting'
+                      ? 'Requesting GPS...'
+                      : locationPermissionStatus === 'denied'
+                      ? 'Location Blocked — Try Again'
+                      : 'Use my location'}
+                  </span>
                 </button>
               )}
             </div>
 
           </div>
 
-          {/* Quick 1-Click Locality Chips (Great for testing & when GPS is blocked) */}
+          {/* Locality shortcuts remain available when location is unavailable. */}
           <div className="mt-3 pt-3 border-t border-sky-100/80 flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-400 font-medium text-[11px]">Or jump to neighborhood:</span>
+            <span className="text-slate-400 font-medium text-[11px]">Browse an area:</span>
             {PRESET_LOCALITIES.map((loc) => (
               <button
                 key={loc.name}
@@ -530,7 +562,7 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
                 onClick={() => handleSelectPresetLocality(loc)}
                 className="px-2.5 py-1 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-[11px] font-medium transition-colors cursor-pointer shadow-2xs"
               >
-                📍 {loc.name}
+                {loc.name}
               </button>
             ))}
           </div>
@@ -546,7 +578,7 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
               <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search road corridor, neighborhood, or agency..."
+                placeholder="Search a street, area, or project"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 rounded-xl bg-white border border-slate-200 text-xs sm:text-sm font-medium focus:outline-none focus:border-emerald-500 text-slate-900"
@@ -555,9 +587,6 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
               {/* Geoapify Live Autocomplete Suggestions */}
               {searchResults.length > 0 && (
                 <div className="absolute left-0 right-0 top-full mt-1 bg-white rounded-2xl shadow-xl border border-slate-200 p-2 z-50 text-xs max-h-60 overflow-y-auto">
-                  <div className="text-[10px] font-bold text-slate-400 px-2 py-1 uppercase tracking-wider">
-                    Geoapify Matching Places
-                  </div>
                   {searchResults.map((res, i) => (
                     <button
                       key={i}
@@ -669,20 +698,20 @@ export default function InteractiveMapSection({ projects, onSelectProject, onRep
           {/* Project Cards (Right) */}
           <div className="lg:col-span-5 space-y-3.5">
             <div className="flex items-center justify-between text-xs font-semibold text-slate-500 px-1">
-              <span>{filteredProjects.length} Projects in Area</span>
+              <span>{filteredProjects.length} projects</span>
               <span>{userLocation ? 'Sorted by Proximity' : selectedStatus}</span>
             </div>
 
             {filteredProjects.length === 0 ? (
               <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200 text-center space-y-3">
-                <p className="text-xs font-medium text-slate-600">No projects found in this vicinity radius or category.</p>
+                <p className="text-xs font-medium text-slate-600">No projects match these filters.</p>
                 <div className="flex justify-center gap-2">
                   <button
                     type="button"
                     onClick={() => { setRadiusKm('all'); setSelectedStatus('All'); setSearchQuery(''); }}
                     className="px-3 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-semibold cursor-pointer"
                   >
-                    View All Bengaluru Works
+                    View all projects
                   </button>
                 </div>
               </div>

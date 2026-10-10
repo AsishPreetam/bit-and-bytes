@@ -29,7 +29,7 @@ export default function CitizenReportingSection({
           <div className="max-w-2xl space-y-5">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-semibold border border-amber-200">
               <MessageSquare className="w-3.5 h-3.5 text-amber-600" />
-              <span>Direct Citizen Channel</span>
+              <span>Community feedback</span>
             </div>
 
             {/* Exact Heading from Section 7.8 */}
@@ -39,7 +39,7 @@ export default function CitizenReportingSection({
 
             {/* Exact Copy from Section 7.8 */}
             <p className="text-base text-slate-600 leading-relaxed font-normal">
-              Report a problem, follow its status and help municipal authorities understand what needs attention.
+              Report a problem or suggest a local improvement.
             </p>
 
             {/* Exact Buttons from Section 7.8 */}
@@ -63,7 +63,7 @@ export default function CitizenReportingSection({
 
             <p className="text-xs text-slate-400 flex items-center gap-1.5 pt-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Reports are officially evaluated by municipal inspectors before findings are confirmed.</span>
+              <span>Reports are reviewed before findings are confirmed.</span>
             </p>
           </div>
         </div>
@@ -80,7 +80,7 @@ export default function CitizenReportingSection({
                     : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'
                 }`}
               >
-                Recent Issue Reports ({(complaints || []).length})
+                Reports ({(complaints || []).length})
               </button>
               <button
                 onClick={() => setActiveTab('suggestions')}
@@ -90,12 +90,12 @@ export default function CitizenReportingSection({
                     : 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'
                 }`}
               >
-                Community Road Ideas ({(suggestions || []).length})
+                Suggestions ({(suggestions || []).length})
               </button>
             </div>
 
             <span className="text-[11px] font-medium text-slate-400">
-              * Live Municipal Triage Queue
+              Community updates
             </span>
           </div>
 

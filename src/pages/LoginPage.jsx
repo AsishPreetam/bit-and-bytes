@@ -12,7 +12,8 @@ import {
   Layers,
   AlertCircle,
   Check,
-  UserPlus
+  UserPlus,
+  X
 } from 'lucide-react';
 import { useAuth, DEFAULT_PERSONAS } from '../context/AuthContext';
 
@@ -79,21 +80,21 @@ export default function LoginPage({ onNavigateHome, onNavigateSignup, onAuthenti
       label: 'Citizen Portal',
       icon: User,
       badge: 'Public Resident',
-      tagline: 'Track projects, view roadworks, report street defects'
+      tagline: 'Browse projects and report issues'
     },
     {
       id: 'contractor',
       label: 'Contractor Portal',
       icon: HardHat,
       badge: 'Licensed Contractor',
-      tagline: 'Dig Once coordination, schedule permits, upload quality certificates'
+      tagline: 'Submit projects and track reviews'
     },
     {
       id: 'municipal',
       label: 'Municipal Command',
       icon: Building2,
       badge: 'Civic Authority',
-      tagline: 'Review conflict engine alerts, issue permits, inspect sites'
+      tagline: 'Review projects and citizen reports'
     }
   ];
 
@@ -136,6 +137,15 @@ export default function LoginPage({ onNavigateHome, onNavigateSignup, onAuthenti
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Home</span>
             </button>
+
+            {/* X Close Button */}
+            <button
+              onClick={onNavigateHome}
+              className="p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </header>
@@ -154,7 +164,7 @@ export default function LoginPage({ onNavigateHome, onNavigateSignup, onAuthenti
               Sign In to CivicSync
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mt-1.5">
-              Select your role below to access your dedicated workspace or log in with verified demo credentials.
+              Choose a workspace to continue.
             </p>
           </div>
 
@@ -222,7 +232,7 @@ export default function LoginPage({ onNavigateHome, onNavigateSignup, onAuthenti
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer shrink-0"
               >
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>1-Click Demo Login</span>
+                <span>Demo sign in</span>
               </button>
             </div>
 

@@ -25,7 +25,7 @@ export default function TopContractors({ leaderboard, loading }) {
             </h2>
             
             <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-xl leading-relaxed">
-              Transparent rankings calculated from verified project completion and verified citizen feedback.
+              Ranked by completed work and verified reports.
             </p>
           </div>
 
@@ -166,7 +166,7 @@ export default function TopContractors({ leaderboard, loading }) {
             <div className="flex items-center gap-2">
               <AlertCircle className="w-4 h-4 text-slate-400 shrink-0" />
               <span>
-                <strong>Qualification benchmark:</strong> {pendingContractors.length} registered contractor(s) currently have fewer than 5 completed projects and will join the featured leaderboard upon reaching 5 eligible projects.
+                <strong>Not yet ranked:</strong> {pendingContractors.length} contractor(s) need 5 eligible projects.
               </span>
             </div>
           </div>

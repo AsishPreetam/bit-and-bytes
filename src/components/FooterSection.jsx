@@ -34,7 +34,7 @@ export default function FooterSection({ onNavigatePortal, onScrollToSection }) {
             </h2>
 
             <p className="text-sm text-slate-600 leading-relaxed font-normal">
-              Join municipal departments, licensed contractors, and citizens in ending redundant excavation across our public roads.
+              Coordinate public works and keep residents informed.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
@@ -68,7 +68,7 @@ export default function FooterSection({ onNavigatePortal, onScrollToSection }) {
               <span className="text-base font-bold text-slate-900 tracking-tight">Civic<span className="text-emerald-600">Sync</span></span>
             </div>
             <p className="text-slate-500 leading-relaxed text-[11px]">
-              Dig once. Build smarter. Unified civic infrastructure coordination and transparency for cities.
+              Public works, coordinated.
             </p>
           </div>
 

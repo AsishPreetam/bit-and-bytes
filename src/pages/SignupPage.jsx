@@ -11,7 +11,8 @@ import {
   Layers, 
   AlertCircle, 
   Check, 
-  LogIn 
+  LogIn,
+  X
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -63,21 +64,21 @@ export default function SignupPage({ onNavigateHome, onNavigateLogin, onAuthenti
       label: 'Citizen Portal',
       icon: User,
       badge: 'Public Resident',
-      tagline: 'Track projects, view roadworks, report street defects'
+      tagline: 'Browse projects and report issues'
     },
     {
       id: 'contractor',
       label: 'Contractor Portal',
       icon: HardHat,
       badge: 'Licensed Contractor',
-      tagline: 'Dig Once coordination, schedule permits, upload quality certificates'
+      tagline: 'Submit projects and track reviews'
     },
     {
       id: 'municipal',
       label: 'Municipal Command',
       icon: Building2,
       badge: 'Civic Authority',
-      tagline: 'Review conflict engine alerts, issue permits, inspect sites'
+      tagline: 'Review projects and citizen reports'
     }
   ];
 
@@ -120,6 +121,15 @@ export default function SignupPage({ onNavigateHome, onNavigateLogin, onAuthenti
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back to Home</span>
             </button>
+
+            {/* X Close Button */}
+            <button
+              onClick={onNavigateHome}
+              className="p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </header>
@@ -138,7 +148,7 @@ export default function SignupPage({ onNavigateHome, onNavigateLogin, onAuthenti
               Create Your CivicSync Account
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mt-1.5">
-              Join the unified civic platform to collaborate on road excavations and urban infrastructure.
+              Create an account for your workspace.
             </p>
           </div>
 
@@ -267,7 +277,7 @@ export default function SignupPage({ onNavigateHome, onNavigateLogin, onAuthenti
               </div>
 
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-500">
-                By registering, you agree to comply with the unified Dig Once street coordination protocol and public reporting standards.
+                Use CivicSync responsibly. Municipal staff make approval decisions.
               </div>
 
               <button
@@ -298,7 +308,7 @@ export default function SignupPage({ onNavigateHome, onNavigateLogin, onAuthenti
 
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-4 px-4 text-center text-xs text-slate-400">
-        <p>CivicSync Infrastructure Network • Unified Municipal Dig Once Platform • Chennai & Bengaluru</p>
+        <p>CivicSync • Public works coordination</p>
       </footer>
 
     </div>

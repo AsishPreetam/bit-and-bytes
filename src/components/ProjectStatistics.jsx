@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, AlertTriangle, CheckCircle, Users, Sparkles } from 'lucide-react';
+import { Activity, AlertTriangle, CheckCircle, Users } from 'lucide-react';
 
 export default function ProjectStatistics({ stats, loading }) {
   const statCards = [
@@ -8,28 +8,24 @@ export default function ProjectStatistics({ stats, loading }) {
       value: stats?.activeProjects ?? '3',
       icon: Activity,
       color: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-      description: 'Works currently undergoing physical execution',
     },
     {
       label: 'Potential Conflicts Flagged',
       value: stats?.potentialConflicts ?? '2',
       icon: AlertTriangle,
       color: 'text-amber-700 bg-amber-50 border-amber-200',
-      description: 'Corridor schedule overlaps flagged for review',
     },
     {
       label: 'Completed Projects',
       value: stats?.completedProjects ?? '3',
       icon: CheckCircle,
       color: 'text-sky-700 bg-sky-50 border-sky-200',
-      description: 'Officially inspected and municipally approved',
     },
     {
       label: 'Contractors Synchronized',
       value: stats?.participatingContractors ?? '6',
       icon: Users,
       color: 'text-slate-700 bg-slate-100 border-slate-200',
-      description: 'Licensed infrastructure partners participating',
     },
   ];
 
@@ -41,16 +37,13 @@ export default function ProjectStatistics({ stats, loading }) {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8">
           <div>
             <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-              City Infrastructure at a Glance
+              Project overview
             </h2>
-            <p className="text-xs text-slate-500 mt-0.5">
-              Current real-time summary across municipal road corridors.
-            </p>
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-[11px] font-medium text-amber-800 self-start sm:self-auto">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-            <span>* Simulated Demonstration Data</span>
+            <span>Sample data</span>
           </div>
         </div>
 
@@ -82,9 +75,6 @@ export default function ProjectStatistics({ stats, loading }) {
                   </div>
                 </div>
 
-                <p className="text-xs text-slate-500 leading-relaxed pt-2 border-t border-slate-100">
-                  {card.description}
-                </p>
               </div>
             );
           })}

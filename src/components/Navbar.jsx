@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { 
   Layers, 
-  User, 
-  HardHat, 
-  Building2, 
   Menu, 
   X, 
   ChevronDown, 
   LogOut, 
-  ShieldCheck, 
   Sparkles,
   LogIn,
-  KeyRound
+  UserPlus
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navbar({ activePortal, setActivePortal, onNavigateSection }) {
-  const { user, setAuthModalOpen, requireRole, logout } = useAuth();
+  const { user, setAuthModalOpen, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
@@ -42,28 +38,8 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
   };
 
   const handlePortalSwitch = (portal) => {
-    if (portal === 'contractor') {
-      requireRole('contractor', () => {
-        setActivePortal('contractor');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-      if (user?.role === 'contractor') {
-        setActivePortal('contractor');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    } else if (portal === 'municipal') {
-      requireRole('municipal', () => {
-        setActivePortal('municipal');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-      if (user?.role === 'municipal') {
-        setActivePortal('municipal');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    } else {
-      setActivePortal(portal);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    setActivePortal(portal);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
 
@@ -115,60 +91,8 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
             ))}
           </nav>
 
-          {/* Portal Entry Points + User Auth Status */}
+          {/* User Auth Status */}
           <div className="hidden lg:flex items-center gap-2.5">
-            {/* Citizen Portal */}
-            <button
-              onClick={() => handlePortalSwitch('citizen')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                activePortal === 'citizen'
-                  ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                  : 'text-slate-600 hover:bg-slate-100 border border-transparent'
-              }`}
-            >
-              <User className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Citizen</span>
-            </button>
-
-            {/* Contractor Portal */}
-            <button
-              onClick={() => handlePortalSwitch('contractor')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                activePortal === 'contractor'
-                  ? 'bg-amber-100 text-amber-800 border border-amber-300'
-                  : 'text-slate-600 hover:bg-slate-100 border border-transparent'
-              }`}
-            >
-              <HardHat className="w-3.5 h-3.5 text-amber-600" />
-              <span>Contractor</span>
-            </button>
-
-            {/* Municipal Portal */}
-            <button
-              onClick={() => handlePortalSwitch('municipal')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                activePortal === 'municipal'
-                  ? 'bg-sky-100 text-sky-800 border border-sky-300'
-                  : 'text-slate-600 hover:bg-slate-100 border border-transparent'
-              }`}
-            >
-              <Building2 className="w-3.5 h-3.5 text-sky-600" />
-              <span>Municipal</span>
-            </button>
-
-            {/* Dedicated Auth Page */}
-            <button
-              onClick={() => handlePortalSwitch('auth')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                activePortal === 'auth'
-                  ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                  : 'text-slate-600 hover:bg-slate-100 border border-transparent'
-              }`}
-            >
-              <KeyRound className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Auth Page</span>
-            </button>
-
             <div className="w-px h-5 bg-slate-200 mx-1" />
 
             {/* Auth User State Pill & Dropdown */}
@@ -207,23 +131,12 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
                       <button
                         onClick={() => {
                           setUserDropdownOpen(false);
-                          setActivePortal('auth');
-                        }}
-                        className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-slate-700 hover:bg-slate-50 text-left font-medium cursor-pointer"
-                      >
-                        <KeyRound className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Dedicated Auth Page</span>
-                      </button>
-
-                      <button
-                        onClick={() => {
-                          setUserDropdownOpen(false);
                           setAuthModalOpen(true);
                         }}
                         className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-slate-700 hover:bg-slate-50 text-left font-medium cursor-pointer"
                       >
                         <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Quick Persona Modal</span>
+                        <span>Quick Persona Switch</span>
                       </button>
 
                       <button
@@ -241,16 +154,28 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
                 )}
               </div>
             ) : (
-              <button
-                onClick={() => {
-                  setActivePortal('auth');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
-              >
-                <LogIn className="w-3.5 h-3.5" />
-                <span>Sign In</span>
-              </button>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => {
+                    setActivePortal('login');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-slate-200 text-slate-700 hover:bg-slate-100 text-xs font-bold transition-colors cursor-pointer"
+                >
+                  <LogIn className="w-3.5 h-3.5" />
+                  <span>Sign In</span>
+                </button>
+                <button
+                  onClick={() => {
+                    setActivePortal('signup');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-xs transition-colors cursor-pointer"
+                >
+                  <UserPlus className="w-3.5 h-3.5" />
+                  <span>Sign Up</span>
+                </button>
+              </div>
             )}
           </div>
 
@@ -261,7 +186,7 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
                 if (user) {
                   setUserDropdownOpen(!userDropdownOpen);
                 } else {
-                  setActivePortal('auth');
+                  setActivePortal('login');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
@@ -298,34 +223,19 @@ export default function Navbar({ activePortal, setActivePortal, onNavigateSectio
           </div>
 
           <div className="pt-3 border-t border-slate-100 space-y-2">
-            <p className="text-[11px] font-semibold text-slate-400 px-3 uppercase tracking-wider">Portals</p>
             <button
-              onClick={() => handlePortalSwitch('citizen')}
+              onClick={() => handlePortalSwitch('login')}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-800"
             >
-              <User className="w-4 h-4 text-emerald-600" />
-              <span>Citizen Portal</span>
+              <LogIn className="w-4 h-4 text-emerald-600" />
+              <span>Sign In</span>
             </button>
             <button
-              onClick={() => handlePortalSwitch('contractor')}
-              className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-amber-50 hover:text-amber-800"
-            >
-              <HardHat className="w-4 h-4 text-amber-600" />
-              <span>Contractor Portal</span>
-            </button>
-            <button
-              onClick={() => handlePortalSwitch('municipal')}
-              className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-800"
-            >
-              <Building2 className="w-4 h-4 text-sky-600" />
-              <span>Municipal Command Portal</span>
-            </button>
-            <button
-              onClick={() => handlePortalSwitch('auth')}
+              onClick={() => handlePortalSwitch('signup')}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-800"
             >
-              <KeyRound className="w-4 h-4 text-emerald-600" />
-              <span>Dedicated Auth Page</span>
+              <UserPlus className="w-4 h-4 text-emerald-600" />
+              <span>Create Account</span>
             </button>
           </div>
         </div>

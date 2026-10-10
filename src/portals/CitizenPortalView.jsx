@@ -59,7 +59,7 @@ export default function CitizenPortalView({
       () => {
         setLocationNotice('Location access was not granted. Showing all city projects.');
       },
-      { timeout: 7000 }
+      { timeout: 15000, enableHighAccuracy: true, maximumAge: 0 }
     );
   };
 
