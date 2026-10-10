@@ -60,6 +60,16 @@ npm run build
 npm start
 ```
 
+## Deploy on Render
+
+This repository includes a `render.yaml` Blueprint for a single Node web service. It installs dependencies, builds the Vite client, and starts Express, which serves both the app and `/api` routes.
+
+1. Push this repository, including `render.yaml`, to GitHub.
+2. In Render, choose **New → Blueprint**, connect the GitHub repository, and apply the `civicsync` service. The Blueprint uses Render's free plan in Singapore; change `plan` or `region` in `render.yaml` if needed.
+3. Wait for the first deploy, then open the `onrender.com` URL shown on the service page. Render redeploys automatically when you push commits to the connected branch.
+
+The app stores its runtime database in `server/data/civicsync_db.json`. Render's free service filesystem is ephemeral, so writes made through the deployed app can be lost when the service restarts or redeploys. Persistent disks require a paid web service; for important or production data, migrate this prototype's JSON storage to a managed database.
+
 The Express server serves `dist/` when that directory exists. Set the API port with the `PORT` environment variable; it defaults to `3001`.
 
 ## Demo access
